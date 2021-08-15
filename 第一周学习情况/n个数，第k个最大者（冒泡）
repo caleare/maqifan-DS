@@ -1,0 +1,29 @@
+#include <stdio.h>//求n个数，第k个最大者
+int main()
+{
+	void maopao(int a[], int n);
+	int a[9] = { 12,1,35,45,6,54,21,3,44 };
+	maopao(a, 9);
+	for(int i=0;i<9;i++)
+	printf("%d\t", a[i]);
+	printf("第%d个最大值是：%d", 9 / 2, a[9 / 2 - 1]);//k=n/2
+	printf("\n");
+	return 0;
+}
+void maopao(int a[], int n)//maopao
+{
+	int i, j, t,r=n;
+    for (i = 0; i <= n - 1 ; i++)
+	{
+		r--;
+		for (j = 0; j <= r; j++)
+		{
+			if (a[j] < a[j+1])
+			{
+				t = a[j+1];
+				a[j+1] = a[j];
+				a[j] = t;
+			}
+		}
+	}
+}
