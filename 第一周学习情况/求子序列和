@@ -1,0 +1,29 @@
+#include<stdio.h>
+int b, c;
+int MaxSum(int a[], int n)
+{
+	int Max=0 , i, j, k,sum;
+	for (i = 0; i < n; i++)
+	{
+		for (j = i; j < n ;j++)
+		{
+			sum = 0;
+			for (k = i; k <= j; k++)
+				sum += a[k];
+			if (sum > Max)
+			{
+				Max = sum; 
+				b = i+1;
+				c = j+1;
+			}
+		}
+	}
+	return Max;
+}
+int main()
+{
+	int a[10] = { 2,2,-3,3 ,5,6,-10,9};
+	printf("最大序列和为：%d\n",MaxSum(a,10));
+	printf("由%d到%d",  b,c);
+	return 0;
+}
