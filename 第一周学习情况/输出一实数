@@ -1,0 +1,33 @@
+#include <stdio.h>//第一章 第二题
+void PrintDigit(int num)
+{
+	printf("%d", num);
+}
+void PrintOut(int N)
+{
+	if (N >= 10)
+		PrintOut(N / 10);
+	PrintDigit(N % 10);
+}
+void PrintIn(double s, int weishu)
+{
+	int zhengshu = s;
+	double xiaoshu = s - zhengshu;
+	if (zhengshu < 0) 
+		putchar('-');
+	PrintOut(s);
+	putchar('.');
+	for (int i = 1; i <= weishu; i++)
+	{
+		double b = xiaoshu * 10;
+		int c = b;
+		PrintOut(c);
+		xiaoshu = b - c;
+	}
+}
+int main()
+{
+	PrintIn(13153.54684867, 4);
+	printf("\n");
+	return 0;
+}
