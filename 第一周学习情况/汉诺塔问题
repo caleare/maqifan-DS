@@ -1,0 +1,27 @@
+#include <stdio.h>
+int sum = 0;
+void move(char x,char y)
+{
+	sum++;
+	printf("%c to %c\n", x, y);
+}	
+void censhu(int n,char a, char b,char c)
+{
+	if (n == 1)
+		move(a, c);
+	else
+	{
+		censhu(n - 1, a, c, b);
+		move(a, c);
+		censhu(n - 1, b, a, c);
+	}
+}
+int main()
+{
+	int n;
+	printf("请输入层数：");
+	scanf_s("%d", &n);
+	censhu(n, 'A','B', 'C');
+	printf("一共走了%d步\n",sum);
+	return 0;
+}
