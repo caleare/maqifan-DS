@@ -1,0 +1,26 @@
+#include <stdio.h>//求n个数，第k个最大者
+int main()
+{
+	void xuanze(int a[], int n);
+	int a[9] = { 12,1,35,45,6,54,21,3,44 };
+	xuanze(a, 9);
+	printf("第%d个最大值是：%d", 9 / 2, a[9/ 2 - 1]);//k=n/2
+	printf("\n"); 
+	return 0;
+}
+void xuanze(int a[], int n)//选择排序
+{
+	int i, j,t;
+	for (i = 0; i <= n-2; i++)
+	{
+		for (j = i + 1; j <= n-1; j++)
+		{
+			if (a[i] < a[j])
+			{
+				t = a[j];
+				a[j] = a[i];
+				a[i] = t;
+			}
+		}
+	}
+}
